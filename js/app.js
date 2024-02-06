@@ -60,6 +60,17 @@ const renderMonth = (monthIndex, year) => {
     const dateNumber = i + 1 - firstDay;
     el.innerHTML =
       dateNumber > 0 && dateNumber <= numDaysInMonth ? dateNumber : "";
+
+    const today = new Date();
+    if (
+      today.getMonth() === monthIndex &&
+      today.getFullYear() === year &&
+      today.getDate() === i + 1 - firstDay
+    ) {
+      el.classList.add("today");
+    } else {
+      el.classList.remove("today");
+    }
   });
 };
 
